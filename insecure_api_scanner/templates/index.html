@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insecure API Scanner</title>
+</head>
+<body>
+    <h1>Insecure API Scanner</h1>
+    <form method="post">
+        <label for="target_api">Enter Target API Endpoint:</label>
+        <input type="url" name="target_api" required>
+        <button type="submit">Scan</button>
+    </form>
+    
+    {% if vulnerabilities %}
+        <h2>Insecure API vulnerabilities detected:</h2>
+        <ul>
+            {% for vulnerability in vulnerabilities %}
+                <li>{{ vulnerability }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
